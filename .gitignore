@@ -4,6 +4,7 @@ package-lock.json
 
 # production build outputs
 build
+dist
 
 # logs
 npm-debug.log*
