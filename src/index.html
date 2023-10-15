@@ -6,11 +6,36 @@
     <title>Document</title>
     <link rel="stylesheet" href="../dist/output.css">
 </head>
-<body>
-    <div class="flex justify-center bg-red-100">
-        <img src="./assets/rock.svg" alt="Rock Icon" class="max-w-sm">
-        <img src="./assets/paper.svg" alt="Paper Icon" class="max-w-sm">
-        <img src="./assets/scissor.svg" alt="Scissor Icon" class="max-w-sm">
+<body class="h-screen flex justify-center items-center">
+    <div>
+        <h1 class="text-center">Rock Paper Scissors</h1>
+        <div class="flex flex-row m-1">
+            <div class="bg-red-300 m-1">
+                <img src="./assets/rock.svg" alt="Rock Icon" class="w-48">
+            </div>
+            <div class="bg-red-400 m-1 p-1">
+                <img src="./assets/paper.svg" alt="Paper Icon" class="w-48">
+            </div>
+            <div class="bg-red-500 m-1">
+                <img src="./assets/scissor.svg" alt="Scissor Icon" class="w-48">
+            </div>
+        </div>
+        <h2 class="text-center">VS</h2>
+        <div class="flex flex-row m-1">
+            <div class="bg-red-300 my-1 mx-auto">
+                <img src="./assets/question.svg" alt="Question Mark Icon" class="w-48">
+                <!-- <img src="./assets/one.svg" alt="Question Mark Icon" class="w-48">
+                <img src="./assets/two.svg" alt="Question Mark Icon" class="w-48">
+                <img src="./assets/three.svg" alt="Question Mark Icon" class="w-48"> -->
+            </div>
+        </div>
+        <h3 class="text-center">You Win! / You lose! (Dissappearing)</h3>
+        <h3 class="text-center">Score</h3>
+        <h3 class="text-center">You: (Updating)  |  Computer: (Updating)</h3>
+        <div class="flex flex-col">
+            <button class="bg-red-300 m-1 w-48 mx-auto">Try Again (Resets Page)</button>
+            <button class="bg-red-300 m-1 w-48 mx-auto">Reset Score (Resets Score)</button>
+        </div>
     </div>
 </body>
 </html>
