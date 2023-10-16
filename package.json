@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "tailwind": "npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
-  },
+    "tailwind": "npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch",
+    "typescript": "tsc -w",
+    "watch": "concurrently \"npm:tailwind\" \"npm:typescript\""
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -26,5 +28,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-pwa-manifest": "^4.3.0",
     "workbox-webpack-plugin": "^7.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
   }
 }

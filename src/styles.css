@@ -41,7 +41,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 /* Additional Global Styles */
 body {
-    background-color: #101010;
+    background-color: rgb(28 25 23);
     color: white;
     font-family: 'Work Sans', sans-serif;
   }

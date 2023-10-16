@@ -8,19 +8,26 @@
 </head>
 <body class="h-screen flex justify-center items-center">
     <div>
+        <!-- Header -->
         <h1 class="text-center">Rock Paper Scissors</h1>
+        <!-- Options Div -->
         <div class="flex flex-row m-1">
-            <div class="bg-red-300 m-1">
+            <!-- Rock -->
+            <div class="border-2 border-transparent bg-stone-500 m-1 rounded" id="rock">
                 <img src="./assets/rock.svg" alt="Rock Icon" class="w-48">
             </div>
-            <div class="bg-red-400 m-1 p-1">
+            <!-- Paper -->
+            <div class="border-2 border-transparent bg-stone-500 m-1 rounded p-1" id="paper">
                 <img src="./assets/paper.svg" alt="Paper Icon" class="w-48">
             </div>
-            <div class="bg-red-500 m-1">
+            <!-- Scissors -->
+            <div class="border-2 border-transparent bg-stone-500 m-1 rounded" id="scissors">
                 <img src="./assets/scissor.svg" alt="Scissor Icon" class="w-48">
             </div>
         </div>
+        <!-- VS Text -->
         <h2 class="text-center">VS</h2>
+        <!-- Computer Choice -->
         <div class="flex flex-row m-1">
             <div class="bg-red-300 my-1 mx-auto">
                 <img src="./assets/question.svg" alt="Question Mark Icon" class="w-48">
@@ -29,13 +36,17 @@
                 <img src="./assets/three.svg" alt="Question Mark Icon" class="w-48"> -->
             </div>
         </div>
+        <!-- Feedback -->
         <h3 class="text-center">You Win! / You lose! (Dissappearing)</h3>
         <h3 class="text-center">Score</h3>
         <h3 class="text-center">You: (Updating)  |  Computer: (Updating)</h3>
+        <!-- Button Div -->
         <div class="flex flex-col">
             <button class="bg-red-300 m-1 w-48 mx-auto">Try Again (Resets Page)</button>
             <button class="bg-red-300 m-1 w-48 mx-auto">Reset Score (Resets Score)</button>
         </div>
     </div>
+    <!-- Scripts -->
+    <script src="../dist/main.js"></script>
 </body>
 </html>
