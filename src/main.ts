@@ -1,5 +1,7 @@
 let playerChoice: string;
 let computerChoice: string;
+let playerScore: number = 0;
+let computerScore: number = 0;
 
 const determineWinner = (playerChoice: string, computerChoice: string): string => {
     if (playerChoice === computerChoice) {
@@ -8,9 +10,36 @@ const determineWinner = (playerChoice: string, computerChoice: string): string =
 
     switch (playerChoice) {
         case 'rock':
-            return (computerChoice === 'scissors') ? "Computer wins!" : "You win!";
+            if (computerChoice === 'scissors') {
+                playerScore++
+                return 'You win!';
+            }
+            if (computerChoice === 'paper') {
+                computerScore++
+                return 'Computer wins!';
+            } 
+        case 'paper':
+            if (computerChoice === 'rock') {
+                playerScore++
+                return 'You win!';
+            }
+            if (computerChoice === 'scissors') {
+                computerScore++
+                return 'Computer wins!';
+            }
+        case 'scissors':
+            if (computerChoice === 'rock') {
+                computerScore++
+                return 'Computer wins!';
+            }
+            if (computerChoice === 'paper') {
+                playerScore++
+                return 'You win!';
+            }
+        default:
+            return 'Something went wrong'
+            
     }
-    return "Something went wrong";
 };
 // Rock, paper, scissors buttons
 const rock = document.querySelector('#rock') as HTMLDivElement;
@@ -56,7 +85,7 @@ const shootButton = document.querySelector('#shoot') as HTMLButtonElement;
 const computerChoiceImage = document.querySelector('#computerChoiceImage') as HTMLImageElement;
 
 let imageSources: string[] = ["./assets/three.svg", "./assets/two.svg", "./assets/one.svg"];
-let imageSourcesOptions: string[] = ["./assets/paper.svg", "./assets/rock.svg", "./assets/scissor.svg"];
+let imageSourcesOptions: string[] = ["./assets/paper.svg", "./assets/rock.svg", "./assets/scissors.svg"];
 let currentIndex: number = 0;
 // Each interval is assigned number. Undefined beforehand.
 let interval: number | undefined;
@@ -88,6 +117,7 @@ shootButton.addEventListener('click', () => {
 
         const result: string = determineWinner(playerChoice, computerChoice);
         console.log(result);
+        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
 
     }, 4000)
 });
