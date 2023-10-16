@@ -1,8 +1,23 @@
+// Global variables
 let playerChoice: string;
 let computerChoice: string;
 let playerScore: number = 0;
 let computerScore: number = 0;
+let imageSources: string[] = ["./assets/three.svg", "./assets/two.svg", "./assets/one.svg"];
+let imageSourcesOptions: string[] = ["./assets/paper.svg", "./assets/rock.svg", "./assets/scissors.svg"];
+let currentIndex: number = 0;
+    // Each interval is assigned number. Undefined beforehand.
+let interval: number | undefined;
+// Selected elements.
+const rock = document.querySelector('#rock') as HTMLDivElement;
+const paper = document.querySelector('#paper') as HTMLDivElement;
+const scissors = document.querySelector('#scissors') as HTMLDivElement;
+const shootButton = document.querySelector('#shoot') as HTMLButtonElement;
+const computerChoiceImage = document.querySelector('#computerChoiceImage') as HTMLImageElement;
+const playerPoints = document.querySelector('#playerPoints') as HTMLSpanElement
+const computerPoints = document.querySelector('#computerPoints') as HTMLSpanElement
 
+// Global functions.
 const determineWinner = (playerChoice: string, computerChoice: string): string => {
     if (playerChoice === computerChoice) {
         return "It's a draw!";
@@ -41,9 +56,16 @@ const determineWinner = (playerChoice: string, computerChoice: string): string =
             
     }
 };
-// Rock, paper, scissors buttons
-const rock = document.querySelector('#rock') as HTMLDivElement;
 
+const setScore = (scorePlayer: number, scoreComputer:number): boolean => {
+    const scorePlayerToText: string = scorePlayer.toString();
+    const scoreComputerToText: string = scoreComputer.toString();
+    playerPoints.textContent = scorePlayerToText;
+    computerPoints.textContent = scoreComputerToText;
+    return true;
+}
+
+// Event listeners.
 rock.addEventListener( 'click', () => {
     rock.classList.remove('bg-stone-500', 'border-transparent');
     rock.classList.add('bg-stone-400', 'border-stone-200');
@@ -54,8 +76,6 @@ rock.addEventListener( 'click', () => {
     playerChoice = "rock"
     console.log(playerChoice);
 })
-
-const paper = document.querySelector('#paper') as HTMLDivElement;
 
 paper.addEventListener( 'click', () => {
     paper.classList.remove('bg-stone-500', 'border-transparent');
@@ -68,8 +88,6 @@ paper.addEventListener( 'click', () => {
     console.log(playerChoice);
 })
 
-const scissors = document.querySelector('#scissors') as HTMLDivElement;
-
 scissors.addEventListener( 'click', () => {
     scissors.classList.remove('bg-stone-500', 'border-transparent');
     scissors.classList.add('bg-stone-400', 'border-stone-200');
@@ -80,15 +98,6 @@ scissors.addEventListener( 'click', () => {
     playerChoice = "scissors"
     console.log(playerChoice);
 })
-// Shoot button
-const shootButton = document.querySelector('#shoot') as HTMLButtonElement;
-const computerChoiceImage = document.querySelector('#computerChoiceImage') as HTMLImageElement;
-
-let imageSources: string[] = ["./assets/three.svg", "./assets/two.svg", "./assets/one.svg"];
-let imageSourcesOptions: string[] = ["./assets/paper.svg", "./assets/rock.svg", "./assets/scissors.svg"];
-let currentIndex: number = 0;
-// Each interval is assigned number. Undefined beforehand.
-let interval: number | undefined;
 
 shootButton.addEventListener('click', () => {
     currentIndex = 0;
@@ -118,6 +127,7 @@ shootButton.addEventListener('click', () => {
         const result: string = determineWinner(playerChoice, computerChoice);
         console.log(result);
         console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
+        setScore(playerScore, computerScore);
 
     }, 4000)
 });
