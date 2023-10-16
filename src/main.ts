@@ -1,5 +1,17 @@
 let playerChoice: string;
 let computerChoice: string;
+
+const determineWinner = (playerChoice: string, computerChoice: string): string => {
+    if (playerChoice === computerChoice) {
+        return "It's a draw!";
+    }
+
+    switch (playerChoice) {
+        case 'rock':
+            return (computerChoice === 'scissors') ? "Computer wins!" : "You win!";
+    }
+    return "Something went wrong";
+};
 // Rock, paper, scissors buttons
 const rock = document.querySelector('#rock') as HTMLDivElement;
 
@@ -69,5 +81,13 @@ shootButton.addEventListener('click', () => {
 
     setTimeout(() => {
         computerChoiceImage.src = imageSourcesOptions[randomNumber];
+        const filename: string | undefined = computerChoiceImage.src.split('/').pop(); 
+        if (filename) {
+            computerChoice = filename.split('.')[0];
+        }
+
+        const result: string = determineWinner(playerChoice, computerChoice);
+        console.log(result);
+
     }, 4000)
 });
