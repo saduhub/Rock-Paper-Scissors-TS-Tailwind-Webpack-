@@ -1,3 +1,4 @@
+// Rock, paper, scissors buttons
 const rock = document.querySelector('#rock') as HTMLDivElement;
 
 rock.addEventListener( 'click', () => {
@@ -30,3 +31,28 @@ scissors.addEventListener( 'click', () => {
     paper.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     rock.classList.add('border-2', 'border-transparent', 'bg-stone-500');
 })
+// Shoot button
+const shootButton = document.querySelector('#shoot') as HTMLButtonElement;
+const computerChoiceImage = document.querySelector('#computerChoiceImage') as HTMLImageElement;
+
+let imageSources: string[] = ["./assets/three.svg", "./assets/two.svg", "./assets/one.svg", "./assets/question.svg"];
+let currentIndex: number = 0;
+// Each interval is assigned number. Undefined beforehand.
+let interval: number | undefined;
+
+shootButton.addEventListener('click', () => {
+    currentIndex = 0;
+    // Prevent effects og multiple clicks.
+    if (interval !== undefined) {
+        clearInterval(interval);
+    }
+
+    interval = window.setInterval(() => {
+        computerChoiceImage.src = imageSources[currentIndex];
+        currentIndex++;
+        // Stop interval at end of array
+        if (currentIndex >= imageSources.length) {
+            clearInterval(interval);
+        }
+    }, 1000);
+});
