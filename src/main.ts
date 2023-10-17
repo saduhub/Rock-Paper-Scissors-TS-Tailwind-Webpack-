@@ -121,7 +121,8 @@ scissors.addEventListener( 'click', () => {
 
 shootButton.addEventListener('click', () => {
     currentIndex = 0;
-    // Prevent effects og multiple clicks.
+    // Prevent effects of multiple clicks.
+    shootButton.setAttribute('disabled', '')
     if (interval !== undefined) {
         clearInterval(interval);
     }
@@ -150,6 +151,7 @@ shootButton.addEventListener('click', () => {
 
         console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
         setScore(playerScore, computerScore);
+        shootButton.removeAttribute('disabled')
 
     }, 4000)
 });
