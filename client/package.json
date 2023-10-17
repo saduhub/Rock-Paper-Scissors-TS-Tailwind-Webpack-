@@ -1,7 +1,7 @@
 {
   "name": "rockpaperscissors",
   "version": "1.0.0",
-  "description": "",
+  "description": "Rock Paper Scissors PWA",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
