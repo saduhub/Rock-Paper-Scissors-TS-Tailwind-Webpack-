@@ -14,6 +14,7 @@ const paper = document.querySelector('#paper') as HTMLDivElement;
 const scissors = document.querySelector('#scissors') as HTMLDivElement;
 const shootButton = document.querySelector('#shoot') as HTMLButtonElement;
 const computerChoiceImage = document.querySelector('#computerChoiceImage') as HTMLImageElement;
+const outcome = document.querySelector('#outcome') as HTMLHeadingElement
 const playerPoints = document.querySelector('#playerPoints') as HTMLSpanElement
 const computerPoints = document.querySelector('#computerPoints') as HTMLSpanElement
 
@@ -56,6 +57,21 @@ const determineWinner = (playerChoice: string, computerChoice: string): string =
             
     }
 };
+
+const setOutcome = (resultOfShoot: string): boolean => {
+    outcome.textContent = resultOfShoot;
+    outcome.classList.remove('text-transparent', 'text-green-500', 'text-red-500', 'text-white');
+    if (resultOfShoot === "You win!") {
+        outcome.classList.add('text-green-500');
+    } else if (resultOfShoot === "Computer wins!") {
+        outcome.classList.add('text-red-500');
+    } else if (resultOfShoot === "It's a draw!") {
+        outcome.classList.add('text-white');
+    } else {
+        return false;
+    }
+    return true
+}
 
 const setScore = (scorePlayer: number, scoreComputer:number): boolean => {
     const scorePlayerToText: string = scorePlayer.toString();
@@ -125,7 +141,9 @@ shootButton.addEventListener('click', () => {
         }
 
         const result: string = determineWinner(playerChoice, computerChoice);
-        console.log(result);
+        
+        setOutcome(result);
+
         console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
         setScore(playerScore, computerScore);
 
