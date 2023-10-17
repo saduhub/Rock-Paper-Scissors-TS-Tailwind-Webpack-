@@ -6,8 +6,12 @@ let computerScore: number = 0;
 let imageSources: string[] = ["./assets/three.svg", "./assets/two.svg", "./assets/one.svg"];
 let imageSourcesOptions: string[] = ["./assets/paper.svg", "./assets/rock.svg", "./assets/scissors.svg"];
 let currentIndex: number = 0;
-    // Each interval is assigned number. Undefined beforehand.
-let interval: number | undefined;
+let interval: number | undefined;  // Each interval is assigned number. Undefined beforehand.
+// Types
+type Scores = {
+    playerScore: number;
+    computerScore: number;
+}
 // Selected elements.
 const rock = document.querySelector('#rock') as HTMLDivElement;
 const paper = document.querySelector('#paper') as HTMLDivElement;
@@ -59,7 +63,7 @@ const determineWinner = (playerChoice: string, computerChoice: string): string =
     }
 };
 
-const setOutcome = (resultOfShoot: string): boolean => {
+const setOutcome = (resultOfShoot: string): void => {
     outcome.textContent = resultOfShoot;
     outcome.classList.remove('text-transparent', 'text-green-500', 'text-red-500', 'text-white');
     if (resultOfShoot === "You win!") {
@@ -68,18 +72,36 @@ const setOutcome = (resultOfShoot: string): boolean => {
         outcome.classList.add('text-red-500');
     } else if (resultOfShoot === "It's a draw!") {
         outcome.classList.add('text-white');
-    } else {
-        return false;
     }
-    return true
 }
 
-const setScore = (scorePlayer: number, scoreComputer:number): boolean => {
+const setScore = (scorePlayer: number, scoreComputer:number): void => {
     const scorePlayerToText: string = scorePlayer.toString();
     const scoreComputerToText: string = scoreComputer.toString();
     playerPoints.textContent = scorePlayerToText;
     computerPoints.textContent = scoreComputerToText;
-    return true;
+}
+
+const loadScoresFromLocalStorage = (): void => {
+    const storedScores = localStorage.getItem('rockPaperScissorsScores');
+    if (storedScores) {
+        const scores: Scores = JSON.parse(storedScores);
+        playerScore = scores.playerScore;
+        computerScore = scores.computerScore;
+        setScore(playerScore, computerScore);
+    }
+}
+
+const saveScoresToLocalStorage = (): void => {
+    const scores: Scores = {
+        playerScore: playerScore,
+        computerScore: computerScore
+    };
+    localStorage.setItem('rockPaperScissorsScores', JSON.stringify(scores));
+}
+
+const deleteScoresFromLocalStorage = (): void => {
+    localStorage.removeItem('rockPaperScissorsScores');
 }
 
 // Event listeners.
@@ -146,13 +168,12 @@ shootButton.addEventListener('click', () => {
         }
 
         const result: string = determineWinner(playerChoice, computerChoice);
-        
+
         setOutcome(result);
-
-        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
         setScore(playerScore, computerScore);
-        shootButton.removeAttribute('disabled')
+        saveScoresToLocalStorage();
 
+        shootButton.removeAttribute('disabled')
     }, 4000)
 });
 
@@ -162,4 +183,8 @@ resetButton.addEventListener ('click', () => {
     setScore(playerScore, computerScore);
     outcome.classList.remove('text-green-500', 'text-red-500', 'text-white');
     outcome.classList.add('text-transparent');
+    deleteScoresFromLocalStorage(); 
 } )
+
+// Onload functions
+loadScoresFromLocalStorage();
