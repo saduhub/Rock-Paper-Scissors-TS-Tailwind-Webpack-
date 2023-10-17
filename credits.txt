@@ -1,0 +1,8 @@
+Rock Icon 
+<a href="https://iconscout.com/icons/rock" class="text-underline font-size-sm" target="_blank">Rock</a> by <a href="https://iconscout.com/contributors/andinur" class="text-underline font-size-sm">Andinur Studio</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>
+
+Paper Icon
+<a href="https://iconscout.com/icons/paper" class="text-underline font-size-sm" target="_blank">Paper</a> by <a href="https://iconscout.com/contributors/priyanka-gupta" class="text-underline font-size-sm">WEBTECHOPS LLP</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>
+
+Scissor Icon
+<a href="https://iconscout.com/icons/scissor" class="text-underline font-size-sm" target="_blank">Scissor</a> by <a href="https://iconscout.com/contributors/jemismali" class="text-underline font-size-sm" target="_blank">Jemis Mali</a>
