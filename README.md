@@ -1,5 +1,6 @@
 # Text Editor - Progressive Web App
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
+[![Deployed Application](https://img.shields.io/badge/Heroku-Deployed_Application-purple?logo=heroku)](https://github.com/saduhub)
 [![Github Profile](https://img.shields.io/badge/GitHub-Saduhub-blue?logo=github)](https://github.com/saduhub)
 
 ## Description
