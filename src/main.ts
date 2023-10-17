@@ -17,6 +17,7 @@ const computerChoiceImage = document.querySelector('#computerChoiceImage') as HT
 const outcome = document.querySelector('#outcome') as HTMLHeadingElement
 const playerPoints = document.querySelector('#playerPoints') as HTMLSpanElement
 const computerPoints = document.querySelector('#computerPoints') as HTMLSpanElement
+const resetButton = document.querySelector('#resetButton') as HTMLButtonElement
 
 // Global functions.
 const determineWinner = (playerChoice: string, computerChoice: string): string => {
@@ -90,7 +91,8 @@ rock.addEventListener( 'click', () => {
     paper.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     scissors.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     playerChoice = "rock"
-    console.log(playerChoice);
+    shootButton.classList.remove('cursor-not-allowed');
+    shootButton.removeAttribute('disabled');
 })
 
 paper.addEventListener( 'click', () => {
@@ -101,7 +103,8 @@ paper.addEventListener( 'click', () => {
     rock.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     scissors.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     playerChoice = "paper"
-    console.log(playerChoice);
+    shootButton.classList.remove('cursor-not-allowed');
+    shootButton.removeAttribute('disabled');
 })
 
 scissors.addEventListener( 'click', () => {
@@ -112,7 +115,8 @@ scissors.addEventListener( 'click', () => {
     paper.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     rock.classList.add('border-2', 'border-transparent', 'bg-stone-500');
     playerChoice = "scissors"
-    console.log(playerChoice);
+    shootButton.classList.remove('cursor-not-allowed');
+    shootButton.removeAttribute('disabled');
 })
 
 shootButton.addEventListener('click', () => {
@@ -149,3 +153,11 @@ shootButton.addEventListener('click', () => {
 
     }, 4000)
 });
+
+resetButton.addEventListener ('click', () => {
+    playerScore = 0,
+    computerScore = 0,
+    setScore(playerScore, computerScore);
+    outcome.classList.remove('text-green-500', 'text-red-500', 'text-white');
+    outcome.classList.add('text-transparent');
+} )
