@@ -9,25 +9,21 @@
 <body class="h-screen flex justify-center items-center">
     <div>
         <!-- Header -->
-        <h1 class="text-center">Rock Paper Scissors</h1>
+        <h1 class="text-center text-2xl mb-8">Rock Paper Scissors</h1>
         <!-- Options Div -->
         <div class="flex flex-row m-1">
             <!-- Rock -->
-            <div class="border-2 border-transparent bg-stone-500 m-1 rounded" id="rock">
+            <div class="border-2 border-transparent bg-stone-500 hover:bg-stone-400 m-1 rounded" id="rock">
                 <img src="./assets/rock.svg" alt="Rock Icon" class="w-48" data-img="rock">
             </div>
             <!-- Paper -->
-            <div class="border-2 border-transparent bg-stone-500 m-1 rounded p-1" id="paper">
+            <div class="border-2 border-transparent bg-stone-500 hover:bg-stone-400 m-1 rounded p-1" id="paper">
                 <img src="./assets/paper.svg" alt="Paper Icon" class="w-48" data-img="paper">
             </div>
             <!-- Scissors -->
-            <div class="border-2 border-transparent bg-stone-500 m-1 rounded" id="scissors">
+            <div class="border-2 border-transparent bg-stone-500 hover:bg-stone-400 m-1 rounded" id="scissors">
                 <img src="./assets/scissors.svg" alt="Scissor Icon" class="w-48" data-img="scissors">
             </div>
-        </div>
-        <!-- Shoot button -->
-        <div class="flex">
-            <button type="button" class="bg-red-300 m-1 w-48 mx-auto rounded cursor-not-allowed" id="shoot" disabled>Shoot!</button>  
         </div>
         <!-- VS Text -->
         <h2 class="text-center">VS</h2>
@@ -40,13 +36,17 @@
                 <img src="./assets/three.svg" alt="Question Mark Icon" class="w-48"> -->
             </div>
         </div>
+        <!-- Shoot button -->
+        <div class="flex">
+            <button type="button" class="bg-teal-600 hover:bg-teal-500 m-1 w-48 h-12 mx-auto rounded cursor-not-allowed" id="shoot" disabled>Shoot!</button>  
+        </div>
         <!-- Feedback -->
-        <h3 class="text-center text-transparent" id="outcome">We'll See!</h3>
+        <h3 class="text-center text-transparent mt-2 text-xl" id="outcome">We'll See!</h3>
         <h3 class="text-center">Score</h3>
         <h3 class="text-center">You: <span id="playerPoints">0</span>  |  Computer: <span id="computerPoints">0</span></h3>
         <!-- Button Div -->
         <div class="flex">
-            <button type="button" class="bg-red-300 m-1 w-48 mx-auto rounded" id="resetButton">Reset Score</button>
+            <button type="button" class="bg-teal-600 hover:bg-teal-500 m-1 w-48 mx-auto rounded h-12" id="resetButton">Reset Score</button>
         </div>
     </div>
     <!-- Scripts -->

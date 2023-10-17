@@ -65,13 +65,13 @@ const determineWinner = (playerChoice: string, computerChoice: string): string =
 
 const setOutcome = (resultOfShoot: string): void => {
     outcome.textContent = resultOfShoot;
-    outcome.classList.remove('text-transparent', 'text-green-500', 'text-red-500', 'text-white');
+    outcome.classList.remove('text-transparent', 'text-green-500', 'text-red-500', 'text-teal-300');
     if (resultOfShoot === "You win!") {
         outcome.classList.add('text-green-500');
     } else if (resultOfShoot === "Computer wins!") {
         outcome.classList.add('text-red-500');
     } else if (resultOfShoot === "It's a draw!") {
-        outcome.classList.add('text-white');
+        outcome.classList.add('text-teal-300');
     }
 }
 
