@@ -4,8 +4,18 @@ let playerChoice: string;
 let computerChoice: string;
 let playerScore: number = 0;
 let computerScore: number = 0;
-let imageSources: string[] = ["./assets/three.svg", "./assets/two.svg", "./assets/one.svg"];
-let imageSourcesOptions: string[] = ["./assets/paper.svg", "./assets/rock.svg", "./assets/scissors.svg"];
+    // Default method needed as TS does not know how to interpret .svg files without module declaration. 
+let questionSvg: string = require("./assets/question.svg");
+let imageSources: string[] = [
+    require("./assets/three.svg").default,
+    require("./assets/two.svg").default,
+    require("./assets/one.svg").default
+];
+let imageSourcesOptions: string[] = [
+    require("./assets/paper.svg").default,
+    require("./assets/rock.svg").default,
+    require("./assets/scissors.svg").default
+];
 let currentIndex: number = 0;
 let interval: number | undefined;  // Each interval is assigned number. Undefined beforehand.
 // Types
