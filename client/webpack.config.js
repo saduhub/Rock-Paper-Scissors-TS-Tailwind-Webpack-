@@ -39,7 +39,7 @@ module.exports = () => {
         background_color: '#ffffff',
         theme_color: '#000000',
         start_url: '/',
-        publicPath: '/',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/assets/rock.svg'),
