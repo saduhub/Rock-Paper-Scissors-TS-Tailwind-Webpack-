@@ -1,3 +1,4 @@
+import './output.css'
 // Global variables
 let playerChoice: string;
 let computerChoice: string;

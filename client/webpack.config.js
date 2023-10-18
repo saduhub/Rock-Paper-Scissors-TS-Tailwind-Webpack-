@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
@@ -7,20 +8,26 @@ module.exports = () => {
   return {
     mode: 'development',
     entry: {
-      main: './client/src/js/index.js',
-      install: './client/src/js/install.js'
+      main: './src/main.ts'
     },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    resolve: {
+      extensions: ['.tsx', '.ts', '.js'],
+    },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './client/index.html',
+        template: './src/index.html',
         title: 'Rock Paper Scissors'
       }),
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+        chunkFilename: '[id].css',
+      }),
       new InjectManifest({
-        swSrc: './client/src-sw.js',
+        swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
       new WebpackPwaManifest({
@@ -35,7 +42,7 @@ module.exports = () => {
         publicPath: '/',
         icons: [
           {
-            src: path.resolve('client/src/images/logo.png'),
+            src: path.resolve('src/assets/rock.svg'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
@@ -46,7 +53,7 @@ module.exports = () => {
       rules: [
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          use: [MiniCssExtractPlugin.loader, 'css-loader'],
         },
         {
           test: /\.m?js$/,
@@ -58,6 +65,11 @@ module.exports = () => {
               plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-transform-runtime'],
             },
           },
+        },
+        {
+          test: /\.tsx?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/,
         },
       ],
     },
