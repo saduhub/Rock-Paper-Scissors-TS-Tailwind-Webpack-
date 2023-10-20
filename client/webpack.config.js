@@ -10,6 +10,9 @@ module.exports = () => {
     entry: {
       main: './src/main.ts'
     },
+    devServer: {
+      hot: 'only',
+    },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
