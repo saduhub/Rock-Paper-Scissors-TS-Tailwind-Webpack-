@@ -1,4 +1,4 @@
-# Text Editor - Progressive Web App
+# Rock Paper Scissors - Progressive Web App
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
 [![Deployed Application](https://img.shields.io/badge/Heroku-Deployed_Application-purple?logo=heroku)](https://github.com/saduhub)
 [![Github Profile](https://img.shields.io/badge/GitHub-Saduhub-blue?logo=github)](https://github.com/saduhub)
@@ -27,7 +27,7 @@ Throughout the development of this project, I gained valuable insights into the 
 
 ## Table of Contents
 
-- [Text Editor - Progressive Web App](#text-editor---progressive-web-app)
+- [Rock Paper Scissors - Progressive Web App](#rock-paper-scissors---progressive-web-app)
   - [Description](#description)
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
