@@ -1,6 +1,6 @@
 # Rock Paper Scissors - Progressive Web App
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/license/mit/)
-[![Deployed Application](https://img.shields.io/badge/Heroku-Deployed_Application-purple?logo=heroku)](https://github.com/saduhub)
+[![Deployed Application](https://img.shields.io/badge/Heroku-Deployed_Application-purple?logo=heroku)](https://rock-paper-scissors-5871f573f399.herokuapp.com/)
 [![Github Profile](https://img.shields.io/badge/GitHub-Saduhub-blue?logo=github)](https://github.com/saduhub)
 
 ## Description
@@ -37,19 +37,20 @@ Throughout the development of this project, I gained valuable insights into the 
 
 ## Installation
 
-**I am working on final webpack build to host on Heroku**
-
 To set up the project locally, follow these steps:
 
 1. Clone the repository (HTTPS): `git clone https://github.com/saduhub/Text-Editor-PWA.git`
 2. Navigate to the project directory: `cd Rock-Paper-Scissors-TS-Tailwind-Webpack-`
 3. Install dependencies: `npm run install`
-4. Run the build: `npm run watch`
-5. Open index.html file using Live Server: `Right click + Open with Live Server`
+4. Run the build: `npm run start:dev`
+5. Open in browser: `http://localhost:8080/`
+
+**You will see "Compiled with problems". Feel free to close that window and disregard. More details [here](https://github.com/GoogleChrome/workbox/issues/2826).**
+**Favicon update coming in the near future.**
 
 ## Usage
 
-1. Access the rock-paper-scissors game on [Heroku](https://github.com/saduhub).
+1. Access the rock-paper-scissors game on [Heroku](https://rock-paper-scissors-5871f573f399.herokuapp.com/).
 2. Install the game (Optional): Press the Install button and confirm **OR** When you access the game for the first time, most modern web browsers will prompt you to install it as a standalone app on your device. This will create an icon on your home screen or app drawer, making it easy to access the game just like any other app.
 3. Enjoy a rock-paper-scissors game with offline functionality, responsive design, fast loading times, and the ability to be added to your home screen.
 
